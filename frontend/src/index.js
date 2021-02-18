@@ -7,11 +7,21 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 import configureStore from './store';
+import { restoreCSRF, csrfFetch } from './store/csrf';
 
 
 const store = configureStore();
 
+// sets state to window for tools if in development
 if (process.env.NODE_ENV !== 'production') {
+  window.store = store;
+}
+
+// fetches csrf if in development
+if (process.env.NODE_ENV !== 'production') {
+  restoreCSRF();
+
+  window.csrfFetch = csrfFetch;
   window.store = store;
 }
 
@@ -24,7 +34,6 @@ function Root() {
     </Provider>
   );
 }
-
 
 ReactDOM.render(
   <React.StrictMode>
