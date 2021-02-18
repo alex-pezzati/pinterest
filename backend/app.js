@@ -55,7 +55,7 @@ app.use((err, _req, _res, next) => {
       err.title = 'Validation error';
     }
     next(err);
-  });
+});
 
 
 // error formatting
