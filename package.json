@@ -1,5 +1,5 @@
 {
-  "name": "authenticate-me",
+  "name": "pinterest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alex-pezzati/authenticate-me.git"
+    "url": "git+https://github.com/alex-pezzati/pinterest.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alex-pezzati/authenticate-me/issues"
+    "url": "https://github.com/alex-pezzati/pinterest/issues"
   },
-  "homepage": "https://github.com/alex-pezzati/authenticate-me#readme"
+  "homepage": "https://github.com/alex-pezzati/pinterest#readme"
 }
