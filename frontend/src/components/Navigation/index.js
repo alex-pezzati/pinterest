@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import style from './Navigation.module.css';
 import logo from '../../images/pinterest-logo1.png'
 
+
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
 
