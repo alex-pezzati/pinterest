@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 
-import style from './Navigation.module.css';
+// cn = className
+import cn from './Navigation.module.css';
 import logo from '../../images/pinterest-logo1.png'
 
 
@@ -20,14 +21,14 @@ function Navigation({ isLoaded }){
         <>
             <div>
                 <NavLink to="/login">
-                    <button className={style.navbar__button}>
+                    <button className={cn.bar__login}>
                         Log In
                     </button>
                 </NavLink>
             </div>
             <div>
                 <NavLink to="/signup">
-                    <button className={style.navbar__button_signup}>
+                    <button className={cn.bar__signup}>
                         Sign Up
                     </button>
                 </NavLink>
@@ -37,16 +38,16 @@ function Navigation({ isLoaded }){
     }
 
     return (
-        <div className={style.navbar}>
+        <div className={cn.bar}>
             <div>
-                <NavLink exact to="/" className={style.navbar__container}>
-                    <img className={style.navbar__logo} src={logo} alt='logo' />
-                    <h3 className={style.navbar__pinterest}>
+                <NavLink exact to="/" className={cn.bar__container} >
+                    <img className={cn.bar__logo} src={logo} alt='logo' />
+                    <h3 className={cn.bar__pinterest}>
                         Pinterest
                     </h3>
                 </NavLink>
             </div>
-            <div className={style.navbar__container}>
+            <div className={cn.bar__container}>
                 {isLoaded && sessionLinks}
             </div>
         </div>
