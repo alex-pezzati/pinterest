@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 
 // cn = className
@@ -17,6 +17,16 @@ import Modal from 'react-modal';
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
+    const modalState = useSelector(state => state.modal)
+    const dispatch = useDispatch();
+
+    const openLogIn = () => {
+        dispatch(modalActions.modalLogInOpen())
+    }
+
+    const openSignUp = () => {
+        dispatch(modalActions.modalSignUpOpen())
+    }
 
     // const [modalLogInOpen, setLogInOpen] = useState(false);
     // const [modalSignUpOpen, setSignUpOpen] = useState(false);
@@ -72,7 +82,7 @@ function Navigation({ isLoaded }){
                 {/* <NavLink to="/login"> */}
                 <button
                     className={cn.bar__login}
-                    // onClick={(e) => modalActions.openLogin()}
+                    onClick={openLogIn}
                 >
                     Log In
                 </button>
@@ -94,7 +104,7 @@ function Navigation({ isLoaded }){
                 {/* <NavLink to="/signup"> */}
                 <button
                     className={cn.bar__signup}
-                    // onClick={(e) => modalActions.openSignUp()}
+                    onClick={openSignUp}
                 >
                     Sign Up
                 </button>

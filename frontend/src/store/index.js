@@ -6,8 +6,8 @@ import sessionReducer from './session';
 
 
 const rootReducer = combineReducers({
-  session: sessionReducer,
-  modal: modalReducer,
+    modal: modalReducer,
+    session: sessionReducer,
 });
 
 

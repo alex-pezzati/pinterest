@@ -20,9 +20,9 @@ function App() {
     return isLoaded && (
         <>
             <Navigation isLoaded={isLoaded} />
-            {isLoaded && (
+            {/* {isLoaded && (
                 <Switch>
-                    {/* <Route path="/login">
+                    <Route path="/login">
                         <Modal
                             isOpen={modalIsOpen}
                             onRequestClose={afterOpenModal}
@@ -39,9 +39,9 @@ function App() {
                         >
                             <SignupFormPage />
                         </Modal>
-                    </Route> */}
+                    </Route>
                 </Switch>
-            )}
+            )} */}
         </>
     );
 }

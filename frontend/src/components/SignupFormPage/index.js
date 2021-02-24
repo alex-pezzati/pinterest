@@ -13,12 +13,8 @@ import './SignupForm.css';
 function SignupFormPage() {
     const dispatch = useDispatch();
     // const sessionUser = useSelector((state) => state.session.user);
-    const modalLogInState = useSelector((state) => state.modal.login)
+    // const modalLogInState = useSelector((state) => state.modal.login)
     const modalSignUpState = useSelector((state) => state.modal.signup)
-
-    console.log(modalActions, 'MODAL ACTIONS?')
-    console.log(sessionActions, 'SESSION ACTIONS?')
-
 
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -39,6 +35,11 @@ function SignupFormPage() {
     };
 
 
+    const closeSignUp = () => {
+        dispatch(modalActions.modalSignUpClose())
+    }
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === confirmPassword) {
@@ -52,14 +53,14 @@ function SignupFormPage() {
         return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
-    // Modal.setAppElement('#root');
+    Modal.setAppElement('#root');
 
     return (
         <Modal
-            isOpen={modalLogInState}
+            isOpen={modalSignUpState}
             // onAfterOpen={afterOpenModal}
             // onRequestClose={dispatch(modalActions.closeLogin)}
-            contentLabel="Example Modal"
+            contentLabel="SignUp Modal"
             shouldCloseOnOverlayClick={true}
             shouldFocusAfterRender={true}
             style={customStyles}
@@ -108,7 +109,7 @@ function SignupFormPage() {
                         </label>
                         <button type="submit">Sign Up</button>
                     </form>
-                    {/* <button onClick={modalActions.closeLogin()}>close</button> */}
+                    <button onClick={closeSignUp}>close</button>
                 </div>
             </div>
         </ Modal>
