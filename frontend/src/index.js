@@ -9,10 +9,7 @@ import App from './App';
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
-
-// modal testing
 import * as modalActions from './store/modal';
-
 
 const store = configureStore();
 
@@ -20,7 +17,6 @@ const store = configureStore();
 if (process.env.NODE_ENV !== 'production') {
     window.store = store;
 
-    // modal testing
     window.modalActions = modalActions;
 }
 
@@ -31,12 +27,6 @@ if (process.env.NODE_ENV !== 'production') {
     window.csrfFetch = csrfFetch;
     window.store = store;
     window.sessionActions = sessionActions;
-        // modal testing
-    window.modalActions = modalActions;
-
-    console.log(store, 'WHAT IS THIS??!')
-    console.log(window.store, 'WHAT IS THIS??!')
-    console.log(window.modalActions, 'WHAT IS THIS??!')
 }
 
 function Root() {

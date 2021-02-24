@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
-import * as sessionActions from "../../store/session";
-
-// modal testing
-import * as modalActions from '../../store/modal';
 import Modal from 'react-modal';
+import { signup } from "../../store/session";
+import { modalSignUpClose } from '../../store/modal';
 
 
 import './SignupForm.css';
 
 function SignupFormPage() {
     const dispatch = useDispatch();
-    // const sessionUser = useSelector((state) => state.session.user);
-    // const modalLogInState = useSelector((state) => state.modal.login)
     const modalSignUpState = useSelector((state) => state.modal.signup)
 
     const [email, setEmail] = useState('');
@@ -22,7 +17,6 @@ function SignupFormPage() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    // if (sessionUser) return <Redirect to="/" />;
     const customStyles = {
         content : {
             top                   : '50%',
@@ -36,7 +30,7 @@ function SignupFormPage() {
 
 
     const closeSignUp = () => {
-        dispatch(modalActions.modalSignUpClose())
+        dispatch(modalSignUpClose())
     }
 
 
@@ -44,7 +38,7 @@ function SignupFormPage() {
         e.preventDefault();
         if (password === confirmPassword) {
             setErrors([]);
-            return dispatch(sessionActions.signup({ email, username, password }))
+            return dispatch(signup({ email, username, password }))
                 .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);

@@ -1,26 +1,18 @@
 import React, { useState } from 'react';
-import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
-
-import * as modalActions from '../../store/modal';
 import Modal from 'react-modal';
+import { login } from '../../store/session';
+import { modalLogInClose } from '../../store/modal';
 
 import './LoginForm.css';
 
 function LoginFormPage() {
     const dispatch = useDispatch();
-    // const sessionUser = useSelector(state => state.session.user);
     const modalLogInState = useSelector((state) => state.modal.login);
+
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
-
-//   if (sessionUser) return (
-//     <Redirect to="/" />
-//   );
-
-
 
 
     const customStyles = {
@@ -35,13 +27,13 @@ function LoginFormPage() {
     };
 
     const closeLogIn = () => {
-        dispatch(modalActions.modalLogInClose())
+        dispatch(modalLogInClose())
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(sessionActions.login({ credential, password }))
+        return dispatch(login({ credential, password }))
         .catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) setErrors(data.errors);
@@ -50,7 +42,7 @@ function LoginFormPage() {
 
     Modal.setAppElement('#root');
 
-  return (
+    return (
         <Modal
             isOpen={modalLogInState}
             // onAfterOpen={afterOpenModal}
@@ -88,7 +80,7 @@ function LoginFormPage() {
                 <button onClick={closeLogIn}>close</button>
             </div>
         </ Modal>
-  );
+    );
 }
 
 export default LoginFormPage;

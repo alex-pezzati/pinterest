@@ -17,7 +17,6 @@ const closeLogin = () => {
 }
 
 const openSignUp = () => {
-    // console.log('am i inside of opensignup action?')
     return {
         type: SIGNUP_OPEN,
     }
@@ -30,22 +29,19 @@ const closeSignUp = () => {
 }
 
 
-export const modalLogInOpen = () => async (dispatch) => {
+export const modalLogInOpen = () => (dispatch) => {
     dispatch(openLogin());
 }
 
 export const modalLogInClose= () => (dispatch) => {
-    // console.log('am i getting inside of modalsignupopen?')
     dispatch(closeLogin());
 }
 
 export const modalSignUpOpen = () => (dispatch) => {
-    // console.log('am i getting inside of modalsignupopen?')
     dispatch(openSignUp());
 }
 
 export const modalSignUpClose = () => (dispatch) => {
-    // console.log('am i getting inside of modalsignupopen?')
     dispatch(closeSignUp());
 }
 
