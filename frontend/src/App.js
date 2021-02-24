@@ -6,29 +6,44 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import * as sessionActions from "./store/session";
 
+
 function App() {
-const dispatch = useDispatch();
-const [isLoaded, setIsLoaded] = useState(false);
+    const dispatch = useDispatch();
+    const [isLoaded, setIsLoaded] = useState(false);
 
-useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-}, [dispatch]);
 
-return isLoaded && (
-    <>
-        <Navigation isLoaded={isLoaded} />
-        {isLoaded && (
-            <Switch>
-                <Route path="/login">
-                <LoginFormPage />
-                </Route>
-                <Route path="/signup">
-                <SignupFormPage />
-                </Route>
-            </Switch>
-        )}
-    </>
-);
+    useEffect(() => {
+        dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    }, [dispatch]);
+
+
+    return isLoaded && (
+        <>
+            <Navigation isLoaded={isLoaded} />
+            {isLoaded && (
+                <Switch>
+                    {/* <Route path="/login">
+                        <Modal
+                            isOpen={modalIsOpen}
+                            onRequestClose={afterOpenModal}
+                            contentLabel='testing login'
+                        >
+                            <LoginFormPage />
+                        </Modal>
+                    </Route>
+                    <Route path="/signup">
+                        <Modal
+                            isOpen={modalIsOpen}
+                            onRequestClose={afterOpenModal}
+                            contentLabel='testing signup'
+                        >
+                            <SignupFormPage />
+                        </Modal>
+                    </Route> */}
+                </Switch>
+            )}
+        </>
+    );
 }
 
 export default App;
