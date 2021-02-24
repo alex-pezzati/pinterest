@@ -11,11 +11,16 @@ import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
 
 
+import * as modalActions from './store/modal';
+
+
 const store = configureStore();
 
 // sets state to window for tools if in development
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;
+
+  window.modalActions = modalActions;
 }
 
 // fetches csrf if in development

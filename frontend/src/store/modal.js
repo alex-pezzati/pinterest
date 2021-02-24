@@ -4,29 +4,36 @@ const SIGNUP_OPEN = 'modal/SignUpOpen';
 const SIGNUP_CLOSE = 'modal/SignUpClose';
 
 
-export const openLogin = () => {
+const openLogin = () => {
     return {
         type: LOGIN_OPEN,
     }
 }
 
-export const closeLogin = () => {
+const closeLogin = () => {
     return {
         type: LOGIN_CLOSE,
     }
 }
 
-export const openSignUp = () => {
+const openSignUp = () => {
     return {
         type: SIGNUP_OPEN,
     }
 }
 
-export const closeSignUp = () => {
+const closeSignUp = () => {
     return {
         type: SIGNUP_CLOSE,
     }
 }
+
+
+export const modalLogInOpen = () => async (dispatch) => {
+    dispatch(openLogin());
+}
+
+
 
 
 const initialState = { login: false, signup: false }
@@ -37,14 +44,12 @@ const modalReducer = ( state = initialState, action) => {
             newState = Object.assign({}, state, {login: true});
             return newState;
         case LOGIN_CLOSE:
-            newState = Object.assign({}, state, {login: false});
-            return newState;
+            return initialState;
         case SIGNUP_OPEN:
             newState = Object.assign({}, state, {signup: true});
             return newState;
         case SIGNUP_CLOSE:
-            newState = Object.assign({}, state, {signup: false});
-            return newState;
+            return initialState;
         default:
             return state;
     }

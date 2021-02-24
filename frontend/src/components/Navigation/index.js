@@ -11,52 +11,54 @@ import logo from '../../images/pinterest-logo1.png'
 // modal testing
 import LoginFormPage from '../LoginFormPage';
 import SignupFormPage from '../SignupFormPage';
+
+import * as modalActions from '../../store/modal';
 import Modal from 'react-modal';
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
 
-    const [modalLogInOpen, setLogInOpen] = useState(false);
-    const [modalSignUpOpen, setSignUpOpen] = useState(false);
+    // const [modalLogInOpen, setLogInOpen] = useState(false);
+    // const [modalSignUpOpen, setSignUpOpen] = useState(false);
 
-    function openModalLogIn() {
-        setLogInOpen(true);
-    }
+    // function openModalLogIn() {
+    //     setLogInOpen(true);
+    // }
 
     // var subtitleLogIn;
     // function afterOpenModalLogIn() {
     //     subtitleLogIn.style.color = 'black';
     // }
 
-    function closeModalLogIn() {
-        setLogInOpen(false);
-    }
+    // function closeModalLogIn() {
+    //     setLogInOpen(false);
+    // }
 
-    function openModalSignUp() {
-        setSignUpOpen(true);
-    }
+    // function openModalSignUp() {
+    //     setSignUpOpen(true);
+    // }
 
     // var subtitleSignUp;
     // function afterOpenModalSignUp() {
     //     subtitleSignUp.style.color = 'black';
     // }
 
-    function closeModalSignUp() {
-        setSignUpOpen(false);
-    }
+    // function closeModalSignUp() {
+    //     setSignUpOpen(false);
+    // }
 
-    const customStyles = {
-        content : {
-            top                   : '50%',
-            left                  : '50%',
-            right                 : 'auto',
-            bottom                : 'auto',
-            marginRight           : '-50%',
-            transform             : 'translate(-50%, -50%)'
-        }
-    };
+    // const customStyles = {
+    //     content : {
+    //         top                   : '50%',
+    //         left                  : '50%',
+    //         right                 : 'auto',
+    //         bottom                : 'auto',
+    //         marginRight           : '-50%',
+    //         transform             : 'translate(-50%, -50%)'
+    //     }
+    // };
 
-    Modal.setAppElement('#root');
+    // Modal.setAppElement('#root');
 
     let sessionLinks;
     if (sessionUser) {
@@ -70,11 +72,11 @@ function Navigation({ isLoaded }){
                 {/* <NavLink to="/login"> */}
                 <button
                     className={cn.bar__login}
-                    onClick={openModalLogIn}
+                    // onClick={(e) => modalActions.openLogin()}
                 >
                     Log In
                 </button>
-                <Modal
+                {/* <Modal
                     isOpen={modalLogInOpen}
                     // onAfterOpen={afterOpenModal}
                     onRequestClose={closeModalLogIn}
@@ -82,21 +84,21 @@ function Navigation({ isLoaded }){
                     shouldCloseOnOverlayClick={false}
                     shouldFocusAfterRender={true}
                     style={customStyles}
-                >
-                    <LoginFormPage />
-                    <button onClick={closeModalLogIn}>close</button>
-                </Modal>
+                > */}
+                <LoginFormPage />
+                    {/* <button onClick={closeModalLogIn}>close</button> */}
+                {/* </Modal> */}
                 {/* </NavLink> */}
             </div>
             <div>
                 {/* <NavLink to="/signup"> */}
                 <button
                     className={cn.bar__signup}
-                    onClick={openModalSignUp}
+                    // onClick={(e) => modalActions.openSignUp()}
                 >
                     Sign Up
                 </button>
-                <Modal
+                {/* <Modal
                     isOpen={modalSignUpOpen}
                     // onAfterOpen={afterOpenModal}
                     onRequestClose={closeModalSignUp}
@@ -104,10 +106,10 @@ function Navigation({ isLoaded }){
                     shouldCloseOnOverlayClick={false}
                     shouldFocusAfterRender={true}
                     style={customStyles}
-                >
-                    <SignupFormPage />
-                    <button onClick={closeModalSignUp}>close</button>
-                </Modal>
+                > */}
+                <SignupFormPage />
+                    {/* <button onClick={closeModalSignUp}>close</button> */}
+                {/* </Modal> */}
                 {/* </NavLink> */}
             </div>
         </>
