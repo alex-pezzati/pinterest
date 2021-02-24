@@ -80,6 +80,7 @@ function Navigation({ isLoaded }){
                     onRequestClose={closeModalLogIn}
                     contentLabel="Example Modal"
                     shouldCloseOnOverlayClick={false}
+                    shouldFocusAfterRender={true}
                     style={customStyles}
                 >
                     <LoginFormPage />
@@ -101,6 +102,7 @@ function Navigation({ isLoaded }){
                     onRequestClose={closeModalSignUp}
                     contentLabel="Example Modal"
                     shouldCloseOnOverlayClick={false}
+                    shouldFocusAfterRender={true}
                     style={customStyles}
                 >
                     <SignupFormPage />
