@@ -16,6 +16,7 @@ const removeUser = () => {
     };
 };
 
+
 // login user to state
 export const login = (user) => async (dispatch) => {
     const { credential, password } = user;
@@ -31,6 +32,7 @@ export const login = (user) => async (dispatch) => {
     dispatch(setUser(data.user));
     return response;
 };
+
 
 // restores user to state
 export const restoreUser = () => async dispatch => {
@@ -70,7 +72,6 @@ export const logout = () => async (dispatch) => {
 
 
 const initialState = { user: null };
-
 const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {

@@ -1,15 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import LoginFormPage from '../LoginFormPage';
+import SignupFormPage from '../SignupFormPage';
+import { modalLogInOpen, modalSignUpOpen } from '../../store/modal';
 
 // cn = className
 import cn from './Navigation.module.css';
-import logo from '../../images/pinterest-logo1.png'
+import logo from '../../images/pinterest-logo.jpg'
 
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+
+    const openLogIn = () => {
+        dispatch(modalLogInOpen())
+    }
+
+    const openSignUp = () => {
+        dispatch(modalSignUpOpen())
+    }
 
     let sessionLinks;
     if (sessionUser) {
@@ -20,18 +32,22 @@ function Navigation({ isLoaded }){
         sessionLinks = (
         <>
             <div>
-                <NavLink to="/login">
-                    <button className={cn.bar__login}>
-                        Log In
-                    </button>
-                </NavLink>
+                <button
+                    className={cn.bar__login}
+                    onClick={openLogIn}
+                >
+                    Log In
+                </button>
+                <LoginFormPage />
             </div>
             <div>
-                <NavLink to="/signup">
-                    <button className={cn.bar__signup}>
-                        Sign Up
-                    </button>
-                </NavLink>
+                <button
+                    className={cn.bar__signup}
+                    onClick={openSignUp}
+                >
+                    Sign Up
+                </button>
+                <SignupFormPage />
             </div>
         </>
         );
