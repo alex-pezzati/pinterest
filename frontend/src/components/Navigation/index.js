@@ -8,7 +8,7 @@ import { modalLogInOpen, modalSignUpOpen } from '../../store/modal';
 
 // cn = className
 import cn from './Navigation.module.css';
-import logo from '../../images/pinterest-logo1.png'
+import logo from '../../images/pinterest-logo.jpg'
 
 
 function Navigation({ isLoaded }){

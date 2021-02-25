@@ -57,7 +57,6 @@ const modalReducer = ( state = initialState, action) => {
         case LOGIN_CLOSE:
             return initialState;
         case SIGNUP_OPEN:
-            console.log('im inside of the reducer')
             newState = Object.assign({}, state, {signup: true});
             return newState;
         case SIGNUP_CLOSE:

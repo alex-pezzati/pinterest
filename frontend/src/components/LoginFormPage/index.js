@@ -4,7 +4,11 @@ import Modal from 'react-modal';
 import { login } from '../../store/session';
 import { modalLogInClose } from '../../store/modal';
 
-import './LoginForm.css';
+import cn from './LoginForm.module.css';
+import logo from '../../images/pinterest-logo.jpg'
+import './test.css'
+
+Modal.setAppElement('#root');
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -14,17 +18,7 @@ function LoginFormPage() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-
-    const customStyles = {
-        content : {
-            top                   : '50%',
-            left                  : '50%',
-            right                 : 'auto',
-            bottom                : 'auto',
-            marginRight           : '-50%',
-            transform             : 'translate(-50%, -50%)'
-        }
-    };
+    console.log(cn.login__content)
 
     const closeLogIn = () => {
         dispatch(modalLogInClose())
@@ -40,41 +34,45 @@ function LoginFormPage() {
         });
     }
 
-    Modal.setAppElement('#root');
 
     return (
         <Modal
             isOpen={modalLogInState}
-            // onAfterOpen={afterOpenModal}
-            // onRequestClose={dispatch(modalActions.closeLogin)}
-            contentLabel="LogIn Modal"
-            shouldCloseOnOverlayClick={true}
+            className={cn.modal__content}
+            overlayClassName={cn.modal__overlay}
+            // bodyOpenClassName={cn.modal__portal}
+            // portalClassName={cn.modal__portal}
+            // style={modalStyle}
+            shouldCloseOnOverlayClick={false}
             shouldFocusAfterRender={true}
-            style={customStyles}
         >
-            <div className='window' onClick={(e) => e.stopPropagation()}>
+            <div className={cn.login__container}>
                 <form onSubmit={handleSubmit}>
-                    <ul>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                    </ul>
-                    <label>
-                        Username or Email
+                    <img className={cn.login__logo} src={logo} alt='logo' />
+                    <h3>Welcome to Pinterest</h3>
+                    <div>
                         <input
-                        type="text"
-                        value={credential}
-                        onChange={(e) => setCredential(e.target.value)}
-                        required
+                            type="text"
+                            value={credential}
+                            onChange={(e) => setCredential(e.target.value)}
+                            placeholder='Email'
+                            required
                         />
-                    </label>
-                    <label>
-                        Password
+                    </div>
+                    <div>
+                        <ul>
+                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        </ul>
+                    </div>
+                    <div>
                         <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder='Password'
+                            required
                         />
-                    </label>
+                    </div>
                     <button type="submit">Log In</button>
                 </form>
                 <button onClick={closeLogIn}>close</button>
