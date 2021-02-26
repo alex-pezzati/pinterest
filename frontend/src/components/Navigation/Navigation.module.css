@@ -1,4 +1,3 @@
-
 .bar {
     align-items: center;
     box-sizing: border-box;
@@ -11,9 +10,17 @@
     z-index: 1;
 }
 
+.container {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    margin-left: 24px;
+    margin-right: 24px;
+    text-decoration: none;
+}
 
-/* button */
-.bar__login {
+.login {
     background-color: #e60023;
     border: 0;
     border-radius: 24px;
@@ -28,16 +35,21 @@
     padding: 8px, 12px;
     text-align: center;
     vertical-align: middle;
+    outline: none;
+    cursor: pointer;
 }
 
+/* .login:focus, */
+.login:hover {
+    transition: center 85ms ease-out;
+    background-color: #ad081b;
+}
 
-/* button */
-.bar__signup {
+.signup {
     background-color: rgb(239, 239, 239);
     border: 0;
     border-radius: 24px;
     box-sizing: border-box;
-    color: black;
     font-size: 14px;
     font-weight: bold;
     margin-left: 8px;
@@ -47,32 +59,27 @@
     padding: 8px, 12px;
     text-align: center;
     vertical-align: middle;
+    outline: none;
+    transition: transform 85ms ease-out;
+    cursor: pointer;
+}
+
+.signup:hover {
+    background-color: #e2e2e2;
 }
 
 
-.bar__container {
-    align-items: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    margin-left: 24px;
-    margin-right: 24px;
-    text-decoration: none;
-}
 
-
-.bar__logo {
+.logo {
     display: block;
     height: 32px;
     width: 32px;
 }
 
-
-.bar__pinterest {
+.pinterest {
     color: #E60023;
     text-align: left;
     font-size: 20px;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica;
     font-weight: bold;
     margin-block-start: 1em;
     margin-block-end: 1em;

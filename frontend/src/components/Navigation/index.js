@@ -7,8 +7,8 @@ import SignupFormPage from '../SignupFormPage';
 import { modalLogInOpen, modalSignUpOpen } from '../../store/modal';
 
 // cn = className
-import cn from './Navigation.module.css';
-import logo from '../../images/pinterest-logo.jpg'
+import c from './Navigation.module.css';
+import logo from '../../images/pinterest-logo.svg'
 
 
 function Navigation({ isLoaded }){
@@ -33,7 +33,7 @@ function Navigation({ isLoaded }){
         <>
             <div>
                 <button
-                    className={cn.bar__login}
+                    className={c.login}
                     onClick={openLogIn}
                 >
                     Log In
@@ -42,7 +42,7 @@ function Navigation({ isLoaded }){
             </div>
             <div>
                 <button
-                    className={cn.bar__signup}
+                    className={c.signup}
                     onClick={openSignUp}
                 >
                     Sign Up
@@ -54,16 +54,16 @@ function Navigation({ isLoaded }){
     }
 
     return (
-        <div className={cn.bar}>
+        <div className={c.bar}>
             <div>
-                <NavLink exact to="/" className={cn.bar__container} >
-                    <img className={cn.bar__logo} src={logo} alt='logo' />
-                    <h3 className={cn.bar__pinterest}>
+                <NavLink exact to="/" className={c.container} >
+                    <img className={c.logo} src={logo} alt='logo' />
+                    <h3 className={c.pinterest}>
                         Pinterest
                     </h3>
                 </NavLink>
             </div>
-            <div className={cn.bar__container}>
+            <div className={c.container}>
                 {isLoaded && sessionLinks}
             </div>
         </div>
