@@ -5,7 +5,7 @@ import { login } from '../../store/session';
 import { modalLogInClose, modalSignUpOpen } from '../../store/modal';
 
 // styling
-import cn from './LoginForm.module.css';
+import c from './LoginForm.module.css';
 import logo from '../../images/pinterest-logo.svg'
 import close from '../../images/close.svg'
 
@@ -41,7 +41,7 @@ function LoginFormPage() {
     let errorRender;
     if (errors.length > 0) {
         errorRender = (
-            <div className={cn.div}>
+            <div className={c.div}>
                 <ul>
                     {errors && errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
@@ -52,28 +52,28 @@ function LoginFormPage() {
     return (
         <Modal
             isOpen={modalLogInState}
-            className={cn.content}
-            overlayClassName={cn.overlay}
+            className={c.content}
+            overlayClassName={c.overlay}
             shouldCloseOnOverlayClick={false}
             shouldFocusAfterRender={true}
         >
-            <div className={cn.container}>
-                <div className={cn.x__container}>
-                    <button onClick={closeLogIn} className={cn.x__button}>
-                        <div className={cn.x__div}>
-                            <img className={cn.x__graphic} src={close} />
+            <div className={c.container}>
+                <div className={c.x__container}>
+                    <button onClick={closeLogIn} className={c.x__button}>
+                        <div className={c.x__div}>
+                            <img className={c.x__graphic} src={close} />
                         </div>
                     </button>
                 </div>
-                <div className={cn.header}>
-                    <img className={cn.logo} src={logo} alt='logo' />
+                <div className={c.header}>
+                    <img className={c.logo} src={logo} alt='logo' />
                 </div>
-                <h3 className={cn.title}>Welcome to Pinterest</h3>
-                <div className={cn.form__container}>
-                    <form onSubmit={handleSubmit} className={cn.form}>
-                        <div className={cn.div}>
+                <h3 className={c.title}>Welcome to Pinterest</h3>
+                <div className={c.form__container}>
+                    <form onSubmit={handleSubmit} className={c.form}>
+                        <div className={c.div}>
                             <input
-                                className={cn.input}
+                                className={c.input}
                                 type='text'
                                 placeholder='Email'
                                 onChange={(e) => setCredential(e.target.value)}
@@ -82,9 +82,9 @@ function LoginFormPage() {
                             />
                         </div>
                         {errorRender}
-                        <div className={cn.div}>
+                        <div className={c.div}>
                             <input
-                                className={cn.input}
+                                className={c.input}
                                 type='password'
                                 placeholder='Password'
                                 onChange={(e) => setPassword(e.target.value)}
@@ -93,21 +93,31 @@ function LoginFormPage() {
                                 />
                         </div>
                         <div>
-                            <a className={cn.forgot}>Forgot your password?</a>
+                            <a
+                                onClick={(e) => closeLogInOpenSignUp()}
+                                className={c.forgot}
+                            >
+                                Forgot your password?
+                            </a>
                         </div>
-                        <div className={cn.div}>
-                            <button type='submit' className={cn.login__button}>Log In</button>
+                        <div className={c.div}>
+                            <button type='submit' className={c.login__button}>Log In</button>
                         </div>
                     </form>
-                    <p className={cn.or}>OR</p>
+                    <p className={c.or}>OR</p>
                 </div>
-                <div className={cn.div}>
-                    <button className={cn.demo}>Continue as Demo</button>
+                <div className={c.div}>
+                    <button className={c.demo}>Continue as Demo</button>
                 </div>
-                <div className={cn.div__line}>
+                <div className={c.div__line}>
                 </div>
-                <div className={cn.div}>
-                    <a onClick={(e) => closeLogInOpenSignUp()} className={cn.signup}>Not on Pinterest yet? Sign up</a>
+                <div className={c.div}>
+                    <a
+                        onClick={(e) => closeLogInOpenSignUp()}
+                        className={c.signup}
+                    >
+                        Not on Pinterest yet? Sign up
+                    </a>
                 </div>
             </div>
         </ Modal>
