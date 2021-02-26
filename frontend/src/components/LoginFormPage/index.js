@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { login } from '../../store/session';
-import { modalLogInClose } from '../../store/modal';
+import { modalLogInClose, modalSignUpOpen } from '../../store/modal';
 
-import cn from './LoginForm.module.css';
-import logo from '../../images/pinterest-logo.jpg'
-import './test.css'
+// styling
+import c from './LoginForm.module.css';
+import logo from '../../images/pinterest-logo.svg'
+import close from '../../images/close.svg'
 
 Modal.setAppElement('#root');
 
@@ -18,10 +19,13 @@ function LoginFormPage() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    console.log(cn.login__content)
-
     const closeLogIn = () => {
-        dispatch(modalLogInClose())
+        dispatch(modalLogInClose());
+    }
+
+    const closeLogInOpenSignUp = () => {
+        dispatch(modalLogInClose());
+        dispatch(modalSignUpOpen());
     }
 
     const handleSubmit = (e) => {
@@ -34,48 +38,87 @@ function LoginFormPage() {
         });
     }
 
+    let errorRender;
+    if (errors.length > 0) {
+        errorRender = (
+            <div className={c.div}>
+                <ul>
+                    {errors && errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+            </div>
+        )
+    }
 
     return (
         <Modal
             isOpen={modalLogInState}
-            className={cn.modal__content}
-            overlayClassName={cn.modal__overlay}
-            // bodyOpenClassName={cn.modal__portal}
-            // portalClassName={cn.modal__portal}
-            // style={modalStyle}
+            className={c.content}
+            overlayClassName={c.overlay}
             shouldCloseOnOverlayClick={false}
             shouldFocusAfterRender={true}
         >
-            <div className={cn.login__container}>
-                <form onSubmit={handleSubmit}>
-                    <img className={cn.login__logo} src={logo} alt='logo' />
-                    <h3>Welcome to Pinterest</h3>
-                    <div>
-                        <input
-                            type="text"
-                            value={credential}
-                            onChange={(e) => setCredential(e.target.value)}
-                            placeholder='Email'
-                            required
-                        />
-                    </div>
-                    <div>
-                        <ul>
-                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                        </ul>
-                    </div>
-                    <div>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder='Password'
-                            required
-                        />
-                    </div>
-                    <button type="submit">Log In</button>
-                </form>
-                <button onClick={closeLogIn}>close</button>
+            <div className={c.container}>
+                <div className={c.x__container}>
+                    <button onClick={closeLogIn} className={c.x__button}>
+                        <div className={c.x__div}>
+                            <img className={c.x__graphic} src={close} />
+                        </div>
+                    </button>
+                </div>
+                <div className={c.header}>
+                    <img className={c.logo} src={logo} alt='logo' />
+                </div>
+                <h3 className={c.title}>Welcome to Pinterest</h3>
+                <div className={c.form__container}>
+                    <form onSubmit={handleSubmit} className={c.form}>
+                        <div className={c.div}>
+                            <input
+                                className={c.input}
+                                type='text'
+                                placeholder='Email'
+                                onChange={(e) => setCredential(e.target.value)}
+                                value={credential}
+                                required
+                            />
+                        </div>
+                        {errorRender}
+                        <div className={c.div}>
+                            <input
+                                className={c.input}
+                                type='password'
+                                placeholder='Password'
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={password}
+                                required
+                                />
+                        </div>
+                        <div>
+                            <a
+                                onClick={(e) => closeLogInOpenSignUp()}
+                                className={c.forgot}
+                            >
+                                Forgot your password?
+                            </a>
+                        </div>
+                        <div className={c.div}>
+                            <button type='submit' className={c.login__button}>Log In</button>
+                        </div>
+                    </form>
+                    <p className={c.or}>OR</p>
+                </div>
+                <div className={c.div}>
+                    <button className={c.demo}>Continue as Demo</button>
+                </div>
+                <div className={c.div__line}>
+                </div>
+                <div className={c.div}>
+                    <a
+                        onClick={(e) => closeLogInOpenSignUp()}
+                        className={c.signup}
+                    >
+                        Not on Pinterest yet? Sign up
+                    </a>
+                </div>
             </div>
         </ Modal>
     );
