@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 
-import Navigation from "./components/Navigation";
-import * as sessionActions from "./store/session";
+import Carousel from './components/Carousel';
+import Navigation from './components/Navigation';
+import * as sessionActions from './store/session';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             {/* {isLoaded && (
 
             )} */}
+            <Carousel />
         </>
     );
 }
