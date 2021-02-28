@@ -12,17 +12,14 @@ import c from './Carousel.module.css';
 
 
 function Carousel() {
-    const images = [ image1, image2, image3, image4 ]
     // const images = CarouselData
+    const images = [ image1, image2, image3, image4 ]
 
-    const [state, setState] = useState({
-        focusSlide: 0,
-        opacity: 0,
-        transform: 'translateY(-40px)',
-        'z-index': 0,
-    })
+    const [active, setActive] = useState( 0 )
 
-    const { focusSlide, opacity, transform } = state;
+    const setActiveSlide = (e) => {
+        setActive(e)
+    }
 
 
     return (
@@ -46,16 +43,36 @@ function Carousel() {
                 <div className={c.button__container}>
                     <ul className={c.button__list}>
                         <li>
-                            <button className={c.button}></button>
+                            <button
+                                onClick={(e) => setActiveSlide(e.target.id)}
+                                id={0}
+                                className={c.button}
+                            >
+                            </button>
                         </li>
                         <li>
-                            <button className={c.button}></button>
+                            <button
+                                onClick={(e) => setActiveSlide(e.target.id)}
+                                id={1}
+                                className={c.button}
+                            >
+                            </button>
                         </li>
                         <li>
-                            <button className={c.button}></button>
+                            <button
+                                onClick={(e) => setActiveSlide(e.target.id)}
+                                id={2}
+                                className={c.button}
+                            >
+                            </button>
                         </li>
                         <li>
-                            <button className={c.button}></button>
+                            <button
+                                onClick={(e) => setActiveSlide(e.target.id)}
+                                id={3}
+                                className={c.button}
+                            >
+                            </button>
                         </li>
                     </ul>
                 </div>
