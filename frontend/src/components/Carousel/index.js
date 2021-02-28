@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { CarouselData } from './CarouselData';
 import CarouselSlide from './CarouselSlide';
@@ -15,12 +15,20 @@ function Carousel() {
     // const images = CarouselData
     const images = [ image1, image2, image3, image4 ]
 
-    const [active, setActive] = useState( 0 )
+    const [active, setActive] = useState( 1 )
 
-    const setActiveSlide = (e) => {
-        setActive(e)
-    }
+    // const setActiveSlide = (e) => {
+    //     setActive(e)
+    // }
 
+    // useEffect(() => {
+
+    // })
+        // images.map((image, idx) => {
+        //     console.log(image)
+        //     console.log(idx)
+        //     console.log(active === idx ? true : false)
+        // })
 
     return (
         <div className={c.container}>
@@ -44,7 +52,7 @@ function Carousel() {
                     <ul className={c.button__list}>
                         <li>
                             <button
-                                onClick={(e) => setActiveSlide(e.target.id)}
+                                onClick={(e) => setActive(e.target.id)}
                                 id={0}
                                 className={c.button}
                             >
@@ -52,7 +60,7 @@ function Carousel() {
                         </li>
                         <li>
                             <button
-                                onClick={(e) => setActiveSlide(e.target.id)}
+                                onClick={(e) => setActive(e.target.id)}
                                 id={1}
                                 className={c.button}
                             >
@@ -60,7 +68,7 @@ function Carousel() {
                         </li>
                         <li>
                             <button
-                                onClick={(e) => setActiveSlide(e.target.id)}
+                                onClick={(e) => setActive(e.target.id)}
                                 id={2}
                                 className={c.button}
                             >
@@ -68,7 +76,7 @@ function Carousel() {
                         </li>
                         <li>
                             <button
-                                onClick={(e) => setActiveSlide(e.target.id)}
+                                onClick={(e) => setActive(e.target.id)}
                                 id={3}
                                 className={c.button}
                             >
@@ -78,7 +86,11 @@ function Carousel() {
                 </div>
             </div>
             {images.map((image, idx) => (
-                <CarouselSlide key={idx} image={image}/>
+                <CarouselSlide
+                    key={idx}
+                    image={image}
+                    active={active === idx ? 1 : -1}
+                />
             ))}
         </div>
     )
