@@ -15,36 +15,59 @@ function Carousel() {
     // const images = CarouselData
     const images = [ image1, image2, image3, image4 ]
 
-    const [active, setActive] = useState( 1 )
+    const [active, setActive] = useState( 3 )
 
-    // const setActiveSlide = (e) => {
-    //     setActive(e)
-    // }
-
+    console.log(active)
     // useEffect(() => {
 
+    // })
     // })
         // images.map((image, idx) => {
         //     console.log(image)
         //     console.log(idx)
         //     console.log(active === idx ? true : false)
-        // })
+    // })
+
+
+    const transitionIn = {
+            transform: 'translateY(-40px)',
+            opacity: 1,
+            zIndex: 2
+        }
+
+    const transitionOut = {
+            transform: 'translateY(-80px)',
+            opacity: 0,
+            zIndex: 0
+    }
 
     return (
         <div className={c.container}>
             <div className={c.header__container}>
                 <div className={c.title}>Get your next</div>
                 <div className={c.subtitles}>
-                    <p id={c.dinner} className={c.flavor}>
+                    <p
+                        className={c.dinner}
+                        style={active == 0 ? transitionIn : transitionOut}
+                    >
                         weeknight dinner idea
                     </p>
-                    <p id={c.decor} className={c.flavor}>
+                    <p
+                        className={c.decor}
+                        style={active == 1 ? transitionIn : transitionOut}
+                    >
                         home decor idea
                     </p>
-                    <p id={c.outfit} className={c.flavor}>
-                        new look outfit
+                    <p
+                        className={c.outfit}
+                        style={active == 2 ? transitionIn : transitionOut}
+                    >
+                        new outfit look
                     </p>
-                    <p id={c.thumb} className={c.flavor}>
+                    <p
+                        className={c.thumb}
+                        style={active == 3 ? transitionIn : transitionOut}
+                    >
                         green thumb idea
                     </p>
                 </div>
@@ -88,8 +111,9 @@ function Carousel() {
             {images.map((image, idx) => (
                 <CarouselSlide
                     key={idx}
+                    idx={idx}
                     image={image}
-                    active={active === idx ? 1 : -1}
+                    active={active}
                 />
             ))}
         </div>
