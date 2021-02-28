@@ -12,9 +12,18 @@ import c from './Carousel.module.css';
 
 
 function Carousel() {
-
     const images = [ image1, image2, image3, image4 ]
     // const images = CarouselData
+
+    const [state, setState] = useState({
+        focusSlide: 0,
+        opacity: 0,
+        transform: 'translateY(-40px)',
+        'z-index': 0,
+    })
+
+    const { focusSlide, opacity, transform } = state;
+
 
     return (
         <div className={c.container}>
@@ -34,7 +43,22 @@ function Carousel() {
                         green thumb idea
                     </p>
                 </div>
-                <div>* * * *</div>
+                <div className={c.button__container}>
+                    <ul className={c.button__list}>
+                        <li>
+                            <button className={c.button}></button>
+                        </li>
+                        <li>
+                            <button className={c.button}></button>
+                        </li>
+                        <li>
+                            <button className={c.button}></button>
+                        </li>
+                        <li>
+                            <button className={c.button}></button>
+                        </li>
+                    </ul>
+                </div>
             </div>
             {images.map((image, idx) => (
                 <CarouselSlide key={idx} image={image}/>
