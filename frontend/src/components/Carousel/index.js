@@ -17,8 +17,25 @@ function Carousel() {
     // const images = CarouselData
 
     return (
-        <div>
-            carousel
+        <div className={c.container}>
+            <div className={c.header__container}>
+                <div className={c.title}>Get your next</div>
+                <div className={c.subtitles}>
+                    <p id={c.dinner} className={c.flavor}>
+                        weeknight dinner idea
+                    </p>
+                    <p id={c.decor} className={c.flavor}>
+                        home decor idea
+                    </p>
+                    <p id={c.outfit} className={c.flavor}>
+                        new look outfit
+                    </p>
+                    <p id={c.thumb} className={c.flavor}>
+                        green thumb idea
+                    </p>
+                </div>
+                <div>* * * *</div>
+            </div>
             {images.map((image, idx) => (
                 <CarouselSlide key={idx} image={image}/>
             ))}
