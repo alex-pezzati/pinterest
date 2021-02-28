@@ -15,18 +15,22 @@ function Carousel() {
     // const images = CarouselData
     const images = [ image1, image2, image3, image4 ]
 
-    const [active, setActive] = useState( 3 )
+    const [active, setActive] = useState( 0 )
 
-    console.log(active)
-    // useEffect(() => {
 
-    // })
-    // })
-        // images.map((image, idx) => {
-        //     console.log(image)
-        //     console.log(idx)
-        //     console.log(active === idx ? true : false)
-    // })
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (active == 3) {
+                setActive(0);
+            } else {
+                setActive(active + 1)}
+        }, 4000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, [active]);
+
 
 
     const transitionIn = {
@@ -75,33 +79,33 @@ function Carousel() {
                     <ul className={c.button__list}>
                         <li>
                             <button
-                                onClick={(e) => setActive(e.target.id)}
+                                onClick={(e) => setActive(0)}
                                 id={0}
-                                className={c.button}
+                                className={active == 0 ? c.button0 : c.button}
                             >
                             </button>
                         </li>
                         <li>
                             <button
-                                onClick={(e) => setActive(e.target.id)}
+                                onClick={(e) => setActive(1)}
                                 id={1}
-                                className={c.button}
+                                className={active == 1 ? c.button1 : c.button}
                             >
                             </button>
                         </li>
                         <li>
                             <button
-                                onClick={(e) => setActive(e.target.id)}
+                                onClick={(e) => setActive(2)}
                                 id={2}
-                                className={c.button}
+                                className={active == 2 ? c.button2 : c.button}
                             >
                             </button>
                         </li>
                         <li>
                             <button
-                                onClick={(e) => setActive(e.target.id)}
+                                onClick={(e) => setActive(3)}
                                 id={3}
-                                className={c.button}
+                                className={active == 3 ? c.button3 : c.button}
                             >
                             </button>
                         </li>

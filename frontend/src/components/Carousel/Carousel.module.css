@@ -48,38 +48,34 @@
     text-align: center;
     width: 100%;
     left: 0px;
-    /* transform: translateY(-80px);
-    opacity: 0;
-    z-index: 0; */
 }
-/* .flavor transitions to these attributes
-transform: translateY(-40px);
-opacity: 1;
-z-index: 2;
-*/
+
 
 .dinner {
     color: rgb(194, 139, 0);
 }
 
+
 .decor {
     color: rgb(7, 140, 123);
 }
+
 
 .outfit {
     color: rgb(0, 118, 211);
 }
 
+
 .thumb {
     color: rgb(64, 122, 87);
 }
 
-#0,
+/* #0,
 #1,
 #2,
 #3 {
 
-}
+} */
 
 /* CAROUSELSLIDE.JS */
 
@@ -129,6 +125,10 @@ z-index: 2;
     padding: 0;
 }
 
+.button0,
+.button1,
+.button2,
+.button3,
 .button {
     background: rgb(225, 225, 225);
     display: inline-block;
@@ -138,4 +138,20 @@ z-index: 2;
     margin: 6px;
     outline: none;
     border-style: none;
+}
+
+.button0 {
+    background: rgb(194, 139, 0);
+}
+
+.button1 {
+    background: rgb(7, 140, 123);
+}
+
+.button2 {
+    background: rgb(0, 118, 211);
+}
+
+.button3 {
+    background: rgb(64, 122, 87);
 }
