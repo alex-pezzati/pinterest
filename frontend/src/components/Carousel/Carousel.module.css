@@ -1,0 +1,141 @@
+.container {
+    position: relative;
+    top: 80px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__container {
+    box-sizing: border-box;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin: 2px;
+    font-size: 60px;
+    font-weight: 600;
+    box-sizing: border-box;
+    display: block;
+    /* margin-top: 48px; */
+}
+
+.subtitles {
+    height: 60px;
+    width: 65%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    margin-top: 48px;
+}
+
+.dinner,
+.decor,
+.outfit,
+.thumb {
+    font-size: 60px;
+    font-weight: 600;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 0px;
+    /* transform: translateY(-80px);
+    opacity: 0;
+    z-index: 0; */
+}
+/* .flavor transitions to these attributes
+transform: translateY(-40px);
+opacity: 1;
+z-index: 2;
+*/
+
+.dinner {
+    color: rgb(194, 139, 0);
+}
+
+.decor {
+    color: rgb(7, 140, 123);
+}
+
+.outfit {
+    color: rgb(0, 118, 211);
+}
+
+.thumb {
+    color: rgb(64, 122, 87);
+}
+
+#0,
+#1,
+#2,
+#3 {
+
+}
+
+/* CAROUSELSLIDE.JS */
+
+.slide {
+    display: flex;
+    width: 1750px;
+    position: absolute;
+    top: 20%;
+    left: auto;
+    right: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imagediv {
+    display: block;
+    background-color: transparent;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 350px;
+    width: 236px;
+}
+
+.innerdiv {
+    display: block;
+    height: 350px;
+    width: 236px;
+    margin: 16px 8px;
+    border-radius: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* carousel buttons */
+.button__container {
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.button__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    background: rgb(225, 225, 225);
+    display: inline-block;
+    padding: 5px;
+    height: 10px;
+    border-radius: 50px;
+    margin: 6px;
+    outline: none;
+    border-style: none;
+}

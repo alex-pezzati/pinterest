@@ -8,6 +8,7 @@
     position: fixed;
     width: 100%;
     z-index: 1;
+    transform: translateY(0px) translateZ(0px);
 }
 
 .container {
