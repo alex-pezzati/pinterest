@@ -1,18 +1,7 @@
-export const CarouselData = [
-    {
-        image:
-        'https://unsplash.com/photos/Pj6J18HdkWg'
-    },
-    {
-        image:
-        'https://unsplash.com/photos/ZfrSxn7JhMU'
-    },
-    {
-        image:
-        'https://unsplash.com/photos/74Bd5JyAthE'
-    },
-    {
-        image:
-        'https://unsplash.com/photos/PQ5npCdbKu8'
-    },
-];
+export default [
+
+    '/images/0-0.jpg',
+    '/images/0-1.jpg',
+    '/images/0-2.jpg',
+    '/images/0-3.jpg'
+]

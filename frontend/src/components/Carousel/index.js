@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-import { CarouselData } from './CarouselData';
+import CarouselData from './CarouselData';
 import CarouselSlide from './CarouselSlide';
-
-import image1 from '../../images/1.jpg';
-import image2 from '../../images/2.jpg';
-import image3 from '../../images/3.jpg';
-import image4 from '../../images/4.jpg';
 
 import c from './Carousel.module.css';
 
+import image1 from '../../images/0-0.jpg';
+import image2 from '../../images/0-0.jpg';
+import image3 from '../../images/0-0.jpg';
+import image4 from '../../images/0-0.jpg';
+
 
 function Carousel() {
-    // const images = CarouselData
+
     const images = [ image1, image2, image3, image4 ]
+    // const images = CarouselData;
 
     const [active, setActive] = useState( 0 )
 
@@ -35,8 +36,7 @@ function Carousel() {
 
     const transitionIn = {
             transform: 'translateY(-40px)',
-            transition: '1s ease-out',
-            transitionDelay: '1.5s',
+            transition: '1s ease-out 1.5s',
             opacity: 1,
             zIndex: 2
         }
@@ -116,11 +116,11 @@ function Carousel() {
                         </ul>
                     </div>
                 </div>
-                {images.map((image, idx) => (
+                {images.map((imageSet, idx) => (
                     <CarouselSlide
                         key={idx}
                         idx={idx}
-                        image={image}
+                        imageSet={imageSet}
                         active={active}
                     />
                 ))}

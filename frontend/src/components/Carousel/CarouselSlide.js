@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+
+
 import c from './Carousel.module.css'
 
-function CarouselSlide({ idx, image, active }) {
-    console.log(image, 'inside of slide comp')
-    console.log(active, 'inside of slide comp')
-    console.log(idx, 'inside of slide comp')
+function CarouselSlide({ idx, imageSet, active }) {
+    console.log(imageSet, 'inside of slide comp')
+    // console.log(active, 'inside of slide comp')
+    // console.log(idx, 'inside of slide comp')
 
-    const style = {background: `url('${image}') center`}
+    const style = {background: `url('${imageSet}') center`}
 
     const transitions = {
         transform: active == idx ? 'translateY(-80px)' : 'translateY(-40px)',
