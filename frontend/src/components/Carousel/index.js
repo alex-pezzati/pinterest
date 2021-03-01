@@ -35,8 +35,7 @@ function Carousel() {
 
     const transitionIn = {
             transform: 'translateY(-40px)',
-            transition: '1s ease-out',
-            transitionDelay: '1.5s',
+            transition: '1s ease-out 1.5s',
             opacity: 1,
             zIndex: 2
         }
