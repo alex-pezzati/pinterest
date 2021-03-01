@@ -117,7 +117,7 @@ function SignupFormPage() {
                         onClick={(e) => closeSignUpOpenLogIn()}
                         className={c.signup}
                     >
-                        Not on Pinterest yet? Sign up
+                        Already a member? Log in
                     </a>
                 </div>
             </div>
