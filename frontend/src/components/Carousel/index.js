@@ -24,7 +24,7 @@ function Carousel() {
                 setActive(0);
             } else {
                 setActive(active + 1)}
-        }, 4500);
+        }, 5500);
 
         return () => {
             clearInterval(interval);
