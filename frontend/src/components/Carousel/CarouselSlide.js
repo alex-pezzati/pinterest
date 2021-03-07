@@ -6,7 +6,7 @@ function CarouselSlide({ idx, image, active }) {
     // console.log(active, 'inside of slide comp')
     // console.log(idx, 'inside of slide comp')
 
-    // i need to refactor all of thissssssss
+    // i need to refactor all of thisssssss
 
     const style = {background: `url('${image}') center`}
 
